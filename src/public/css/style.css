@@ -1,0 +1,81 @@
+@charset "UTF-8";
+@import "http://fonts.googleapis.com/css?family=Roboto:400,100";
+
+body {
+     margin: 0; 
+     background-color: black; 
+     text-align: center;
+}	 	        
+#container {
+    position: absolute;
+    background-color: black; 
+	top: 0;
+	left: 0;
+    margin: 0;
+    border: 0;                
+}
+video {
+    background: #000 none repeat scroll 0 0;
+    border: 0px solid #aaa;
+    margin: 0;
+    border: 0;
+    top: -100px;
+}
+
+#remote-video {
+	position: relative;
+    overflow: hidden; 
+}
+
+#leftcol {
+	float: left;
+	display: block;
+	border-right: 1px solid white;
+}               
+#rightcol {
+    width: 230px;
+    float: right;
+    display: block;
+	color: #f4f0e2;
+	font-family:Roboto, Helvetica, 'Helvetica Neue', Arial;
+	font-size:18px;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:300;
+    text-align: right;
+    background-color: black;
+    overflow: hidden;
+    padding-right: 15px;
+    padding-left: 10px;	 
+}
+.overlayWrapper {
+    position: absolute;
+    border: 0;
+    margin: auto;
+    overflow: hidden;
+}
+.overlayWrapper #overlay {
+    position: absolute;
+    right: 10px;
+}
+
+h2 {
+	margin: 0;
+	padding-bottom: 10px;
+}
+
+label {
+	border: none; 
+	float: left;
+	clear: both;
+	margin-left: 10px;
+}   
+
+a {
+	color: green;
+	font-family: Roboto, Helvetica, 'Helvetica Neue', Arial;
+	font-size:20px;
+	padding-bottom: 10px;
+	display: block;
+	font-weight: bold;	
+}

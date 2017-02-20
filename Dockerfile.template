@@ -1,0 +1,76 @@
+FROM resin/%%RESIN_MACHINE_NAME%%-node:latest
+
+#switch on systemd init system in container
+ENV INITSYSTEM on
+
+RUN echo "deb http://www.linux-projects.org/listing/uv4l_repo/raspbian/ jessie main" >> /etc/apt/sources.list
+
+RUN curl http://www.linux-projects.org/listing/uv4l_repo/lrkey.asc | sudo apt-key add -
+
+RUN apt-get update \
+	&& apt-get -f install \
+		cmake \
+		uv4l \
+		uv4l-raspicam \
+		uv4l-raspicam-extras\
+		uv4l-webrtc && \
+		apt-get clean && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update \
+	&& apt-get -f install \
+		dnsmasq \
+		hostapd \
+		iproute2 \
+		iw \
+		raspberrypi-bootloader \
+		sense-hat \
+		libdbus-1-dev \
+		libexpat-dev \
+		rabbitmq-server \
+		erlang \
+		logrotate \
+		rfkill \
+	    python-dev \
+	    python-smbus \
+	    python-psutil \
+		python-pip \
+		python-serial \
+	    wireless-tools && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && apt-get install -y rpi-update
+
+RUN rpi-update
+
+# Upgrade pip
+# RUN pip install --upgrade pip
+
+# Install paho-mqtt library
+RUN pip install paho-mqtt
+
+RUN mkdir -p /usr/src/app/
+
+WORKDIR /usr/src/app
+
+COPY package.json /usr/src/app/
+
+RUN JOBS=MAX npm install --unsafe-perm --production \
+	&& npm cache clean
+
+COPY bower.json .bowerrc /usr/src/app/
+
+RUN ./node_modules/.bin/bower --allow-root install \
+	&& ./node_modules/.bin/bower --allow-root cache clean
+
+COPY . /usr/src/app/
+
+RUN ./node_modules/.bin/coffee -c ./src
+
+RUN echo '[{rabbit,        [{loopback_users, []}]}].' >> /etc/rabbitmq/rabbitmq.config
+RUN sudo rabbitmq-plugins enable rabbitmq_mqtt
+RUN sudo rabbitmq-plugins enable rabbitmq_web_stomp
+RUN sudo rabbitmq-plugins enable rabbitmq_management
+
+#RUN sudo service uv4l_raspicam start
+
+CMD bash start

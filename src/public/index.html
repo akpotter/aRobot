@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>aRobot.io Command Center</title>
+		<script src="//cdn.jsdelivr.net/sockjs/0.3.4/sockjs.min.js"></script>
+		<script src="js/stomp.js"></script>
+		<script src="js/app.js"></script>
+		<link type="text/css" rel="stylesheet" href="css/style.css" />
+    </head>
+    <body onload="start();">
+	    <div id="leftcol">
+	        <div id="container">
+	            <div class="overlayWrapper" id="videoContainer">
+	                <video id="remote-video" autoplay="" width="800" height="600">
+	                    Your browser does not support the video tag.
+	                </video>
+	                <p id="overlay"><img src="../img/nasaLogo.png" width="100px" /></p>
+	            </div>
+	        </div>
+	    </div>
+        <div id="rightcol">
+	        <a href="wifi.html">Wifi</a>
+	        <h2>Raw Data</h2>
+		    <label>Status:</label><div id="constatus"></div>
+		    <label>Roll:</label><div id="r"></div>
+		    <label>Pitch:</label><div id="p"></div>
+		    <label>Pan:</label><div id="y"></div>
+		    <label>Pressure:</label><div id="pressure"></div>
+		    <label>Altitud:</label><div id="altitud"></div>
+		    <label>Temperature:</label><div id="temperature"></div>
+		    <label>Command Sent:</label><div id="keyb"></div>
+	    </div>
+        <div style="display: none">
+            <label><input type="checkbox" onclick="singleselection('audio_cast', 'cast_mic');" id="cast_mic" name="audio_cast" value="microphone">microphone/other input</label>
+            <label><input type="checkbox" id="echo_cancellation" name="audio_processing" title="disable any audio processing when casting music">echo cancellation</label>
+            <label><input type="checkbox" onclick="singleselection('video_cast', 'cast_camera');" id="cast_camera" name="video_cast" value="camera">camera</label>
+            <label><input type="checkbox" onclick="singleselection('video_cast', 'cast_screen');" id="cast_screen" name="video_cast" value="screen">screen</label>
+            <label><input type="checkbox" onclick="singleselection('video_cast', 'cast_window');" id="cast_window" name="video_cast" value="screen">window</label>
+            <label><input type="checkbox" onclick="singleselection('video_cast', 'cast_application');" id="cast_application" name="video_cast" value="application">application</label>
+            <label><input type="checkbox" onclick="remote_hw_vcodec_selection();"  id="remote_hw_vcodec" name="remote_hw_vcodec" value="remote_hw_vcodec" title="try">force use of hardware codec and HD resolution, full framerate (min. 2000 kbps)</label>
+			<input required type="text" id="signalling_server" value="192.168.1.199:8080" style="display: none"/>
+            <input type="text" id="ice_servers" value="" title="array of RTCIceServer objects as valid JSON string"/>
+			<button id="start" style="background-color: green; color: white" onclick="start();">Go!</button>
+			<button disabled id="stop" style="background-color: red; color: white" onclick="stop();">Stop</button>
+		</div>
+    </body>
+</html>
