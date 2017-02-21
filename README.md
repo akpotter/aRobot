@@ -23,7 +23,7 @@ curl http://www.linux-projects.org/listing/uv4l_repo/lrkey.asc | sudo apt-key ad
 apt-get update && apt-get -f install uv4l uv4l-raspicam uv4l-raspicam-extras uv4l-webrtc && apt-get clean &&
 rm -rf /var/lib/apt/lists/*
 
-apt-get update && apt-get -f install hostapd dnsmasq iproute2 iw raspberrypi-bootloader sense-hat libdbus-1-dev libexpat-dev rabbitmq-server erlang logrotate rfkill python-dev python-smbus python-psutil python-pip python-serial wireless-tools && apt-get clean && rm -rf /var/lib/apt/lists/*
+apt-get update && apt-get -f install git hostapd dnsmasq iproute2 iw raspberrypi-bootloader sense-hat libdbus-1-dev libexpat-dev rabbitmq-server erlang logrotate rfkill python-dev python-smbus python-psutil python-pip python-serial wireless-tools && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 echo '[{rabbit,        [{loopback_users, []}]}].' >> /etc/rabbitmq/rabbitmq.config
 rabbitmq-plugins enable rabbitmq_mqtt
@@ -62,11 +62,11 @@ sudo nano /boot/cmdline.txt
 
 ### Copy code
 ```
-mkdir -p /usr/src/app/
-chown pi /usr/src/app/
+sudo mkdir -p /usr/src/app/
+sudo chown pi /usr/src/app/
 cd /usr/src/app/
 
-git clone https://github.com/juano2310/aRobot.git
+git clone https://github.com/juano2310/aRobot.git /usr/src/app/
 ```
 
 ### Compile Web code
