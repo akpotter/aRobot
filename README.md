@@ -2,6 +2,7 @@
 
 Download RASPBIAN JESSIE LITE and ETCHER and burn the image.
 https://www.raspberrypi.org/downloads/raspbian/
+
 https://etcher.io/
 
 ### Install dependencies
@@ -42,6 +43,7 @@ sudo dpkg -i node_latest_armhf.deb```
 
 ### ENABLE SERIAL
 Remove "console=serial0,115200" from:
+
 ```sudo nano /boot/cmdline.txt```
 
 ### Copy code
@@ -59,4 +61,5 @@ git clone https://github.com/juano2310/aRobot.git```
 
 ### Start on bootup
 Add "sudo bash /usr/src/app/start &" to:
+
 ```sudo nano /etc/rc.local```
