@@ -7,7 +7,7 @@
     gateway: process.env.PORTAL_GATEWAY || '192.168.23.1',
     dhcpRange: process.env.PORTAL_DHCP_RANGE || '192.168.23.2,192.168.23.254',
     connmanConfig: process.env.PORTAL_CONNMAN_CONFIG || '/var/lib/connman/network.config',
-    persistentConfig: process.env.PORTAL_PERSISTENT_CONFIG || '/data/network.config'
+    persistentConfig: process.env.PORTAL_PERSISTENT_CONFIG || '/home/pi/network.config'
   };
 
 }).call(this);
