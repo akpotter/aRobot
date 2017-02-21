@@ -42,7 +42,7 @@ sudo dpkg -i node_latest_armhf.deb```
 
 
 ### ENABLE SERIAL
-Remove "console=serial0,115200" from: \
+Remove "console=serial0,115200" from:
 ```sudo nano /boot/cmdline.txt```
 
 ### Copy code
