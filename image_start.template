@@ -2,28 +2,31 @@ sudo su
 echo "deb http://www.linux-projects.org/listing/uv4l_repo/raspbian/ jessie main" >> /etc/apt/sources.list
 curl http://www.linux-projects.org/listing/uv4l_repo/lrkey.asc | sudo apt-key add -
 sudo apt-get update && apt-get -f install uv4l uv4l-raspicam uv4l-raspicam-extras uv4l-webrtc && apt-get clean && rm -rf /var/lib/apt/lists/*
-sudo apt-get update && apt-get -f install connman hostapd dnsmasq iproute2 iw raspberrypi-bootloader sense-hat libdbus-1-dev libexpat-dev rabbitmq-server erlang logrotate rfkill python-dev python-smbus python-psutil python-pip python-serial wireless-tools && apt-get clean && rm -rf /var/lib/apt/lists/*
-
-connmanctl enable wifi
-connmanctl enable bluetooth
-sudo nano /var/lib/connman/network.config
-sudo nano /home/pi/network.config
-
-apt-get remove dnsmasq
-
-# PAIR BT CONTROLLER
+sudo apt-get update && apt-get -f install hostapd dnsmasq iproute2 iw raspberrypi-bootloader sense-hat libdbus-1-dev libexpat-dev rabbitmq-server erlang logrotate rfkill python-dev python-smbus python-psutil python-pip python-serial wireless-tools && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # sudo su
 # apt-get update && apt-get install -y rpi-update
 # rpi-update
 
+sudo apt-get update && apt-get -f install connman  && apt-get clean && rm -rf /var/lib/apt/lists/*
+sudo apt-get upgrade
+
+sudo apt-get remove dnsmasq
+
+connmanctl enable wifi
+connmanctl enable bluetooth
+
+# PAIR BT CONTROLLER
+
 # INSTALL NODE.JS
 wget http://node-arm.herokuapp.com/node_latest_armhf.deb
 sudo dpkg -i node_latest_armhf.deb
 
-sudo pip install paho-mqtt
-sudo pip install evdev
+sudo pip install paho-mqtt evdev
 
+#ENABLE SERIAL
+#REMOVE "console=serial0,115200" from:
+sudo nano /boot/cmdline.txt
 
 mkdir -p /usr/src/app/
 chown pi /usr/src/app/
