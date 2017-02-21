@@ -42,8 +42,8 @@ sudo dpkg -i node_latest_armhf.deb```
 
 
 ### ENABLE SERIAL
-```REMOVE "console=serial0,115200" from:
-sudo nano /boot/cmdline.txt```
+Remove "console=serial0,115200" from: \
+```sudo nano /boot/cmdline.txt```
 
 ### Copy code
 ```mkdir -p /usr/src/app/
@@ -59,5 +59,5 @@ git clone https://github.com/juano2310/aRobot.git```
 ./node_modules/.bin/coffee -c ./src```
 
 ### Start on bootup
+Add "sudo bash /usr/src/app/start &" to:
 ```sudo nano /etc/rc.local```
-## ADD sudo bash /usr/src/app/start &
