@@ -1,3 +1,7 @@
+# Download RASPBIAN JESSIE LITE and ETCHER and burn the image
+# https://www.raspberrypi.org/downloads/raspbian/
+# https://etcher.io/
+
 sudo su
 echo "deb http://www.linux-projects.org/listing/uv4l_repo/raspbian/ jessie main" >> /etc/apt/sources.list
 curl http://www.linux-projects.org/listing/uv4l_repo/lrkey.asc | sudo apt-key add -
