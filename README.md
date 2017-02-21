@@ -1,9 +1,9 @@
 # aRobot
 
-## How to use this
+Download RASPBIAN JESSIE LITE and ETCHER and burn the image.
 
-Download RASPBIAN JESSIE LITE and ETCHER and burn the image
 https://www.raspberrypi.org/downloads/raspbian/
+
 https://etcher.io/
 
 ### Install dependencies
