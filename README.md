@@ -9,8 +9,8 @@ https://etcher.io/
 ### Update firmware
 
 ```
-apt-get update && apt-get install -y rpi-update && rpi-update
-reboot
+sudo apt-get update && apt-get install -y rpi-update && rpi-update
+sudo reboot
 ```
 
 ### Install dependencies
