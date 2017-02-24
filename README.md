@@ -9,7 +9,7 @@ https://etcher.io/
 ### Update firmware
 
 ```
-sudo apt-get update && apt-get install -y rpi-update && rpi-update
+sudo apt-get update && apt-get install -y rpi-update && sudo rpi-update
 sudo reboot
 ```
 
@@ -35,7 +35,6 @@ pip install paho-mqtt evdev
 
 apt-get update && apt-get -f install connman  && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-apt-get remove dnsmasq
 apt-get autoremove
 
 apt-get update && apt-get upgrade
