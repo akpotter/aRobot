@@ -9,7 +9,7 @@ https://etcher.io/
 ### Update firmware
 
 ```
-sudo apt-get update && apt-get install -y rpi-update && sudo rpi-update
+sudo apt-get update && sudo apt-get install -y rpi-update && sudo rpi-update
 sudo reboot
 ```
 
@@ -34,8 +34,6 @@ service uv4l_raspicam start
 pip install paho-mqtt evdev
 
 apt-get update && apt-get -f install connman  && apt-get clean && rm -rf /var/lib/apt/lists/*
-
-apt-get autoremove
 
 apt-get update && apt-get upgrade
 ```
