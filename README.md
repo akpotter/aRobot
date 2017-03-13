@@ -112,3 +112,9 @@ Note: If the hotspot doesn't connect run:
 ```
 sudo apt-get remove dnsmasq
 ```
+
+Note: To modify camera settings:
+
+```
+sudo nano /etc/uv4l/uv4l-raspicam.conf
+```

@@ -1,0 +1,3 @@
+21:40:35.811771 Processor thread 1 terminated
+21:40:35.819703 Streaming terminated.
+21:40:35.963282 Control loop thread terminated

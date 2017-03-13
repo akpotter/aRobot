@@ -1,0 +1,6 @@
+21:40:20.695072 StartUserLog()
+21:40:20.733551 WaitForGo()
+21:40:36.048573 LapCount()
+21:40:36.086151 WaitForSeconds(4.000)
+21:40:40.127372 EndDetailedLog()
+21:40:40.207777 EndUserLog()
